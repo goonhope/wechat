@@ -10,7 +10,7 @@ on:
       xlsx:
         description: '生成xlsx or csv？'
         required: true
-        default: ture
+        default: false
         
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
        - name: envrun
          run: |
            npm install node-fetch node-xlsx fs jsdom js-fire
-           node index.js go """" true
+           node index.js "${{ '' || github.event.inputs.url}}" ${{false || github.event.inputs.xlsx}}
        - name: Commit files
          run: |
           git config --local user.email "goonhope@gmail.com"
