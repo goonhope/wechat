@@ -41,7 +41,7 @@ var wechat = async (url='') =>{
 		p = Object.assign(p, a);
 		if(i == Math.ceil(size/20)-1)break;
 		i++;
-		// sleep(Math.random * 100);};
+		sleep(Math.random * 100);};
 	return hold;
 	};
 var toFile = (fdata,name='index.xlsx') =>{
