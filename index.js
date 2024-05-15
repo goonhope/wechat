@@ -23,7 +23,7 @@ var getId = async (url) => await JSDOM.fromURL(url,{runScripts: "dangerously",re
 var sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 var wechat = async (url='') =>{
-	url = url || 'https://mp.weixin.qq.com/s/TpdNq75Qd7hqV0kpKgayAw'
+	url = url || 'https://mp.weixin.qq.com/s/TpdNq75Qd7hqV0kpKgayAw';
 	var hold = [],i=0;
 	let base  = "https://mp.weixin.qq.com/mp/appmsgalbum";
 	let {size,id,albumId,biz} = await getId(url);
@@ -46,11 +46,11 @@ var wechat = async (url='') =>{
 	};
 var toFile = (fdata,name='index.xlsx') =>{
 	if(name.toLocaleLowerCase().endsWith('xlsx')){fdata = xlsx.build([{name: 'list', data: fdata}])};
-	fs.writeFile(name, fdata, (err) => console.log(...(err?[err,"fail!"]:["done!"])) || process.exit());}
+	fs.writeFile(name, fdata, (err) => console.log(...(err?[err,"fail!"]:["done!"])) || process.exit());};
 var go = async (url='',csv=true) => {
 	var fdata = await wechat(url).then(x=>toList(x)); 
 	fdata = csv?toList(fdata).map(x=>x.toString()).join("\n"):fdata;
-	toFile(fdata,`index.${csv?'csv':'xlsx'}`);}
+	toFile(fdata,`index.${csv?'csv':'xlsx'}`);};
 
 fire(go)
 // go('',false)
