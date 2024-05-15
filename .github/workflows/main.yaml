@@ -6,11 +6,11 @@ on:
       url:
         description: '公众号网址？'
         required: true
-        default: "''" 
+        default: undefined 
       xlsx:
         description: '生成xlsx or csv？'
         required: true
-        default: ture 
+        default: ture
         
 
 jobs:
