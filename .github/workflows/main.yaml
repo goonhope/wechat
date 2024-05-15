@@ -1,0 +1,39 @@
+name: Manual
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: '公众号网址？'
+        required: true
+        default: '' 
+      xlsx:
+        description: '生成xlsx or csv？'
+        required: true
+        default: ture 
+        
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+       - name: check
+         uses: actions/checkout@master
+       - name: setup env
+         uses: actions/setup-node@v4
+         with:
+           node-version: '20'
+       - name: envrun
+         run: |
+           npm install npm node-fetch node-xlsx fs jsdom js-fire
+           node index.js go "${{ github.event.inputs.url }}"  ${{github.event.inputs.xlsx}}
+       - name: Commit files
+         run: |
+          git config --local user.email "goonhope@gmail.com"
+          git config --local user.name "goonhope"
+          git add -A
+          git commit -m "Update `date -d '8 hour' '+%Y/%m/%d %H:%M:%S'`" -a
+       - name: Push back
+         uses: ad-m/github-push-action@master
+         with:
+           github_token: ${{secrets.GITHUB_TOKEN }}
+           branch: main 
