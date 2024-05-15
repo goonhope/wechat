@@ -6,7 +6,7 @@ on:
       url:
         description: '公众号网址？'
         required: true
-        default: undefined 
+        default: "" 
       xlsx:
         description: '生成xlsx or csv？'
         required: true
