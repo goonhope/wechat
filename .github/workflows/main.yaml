@@ -24,7 +24,7 @@ jobs:
            node-version: '20'
        - name: envrun
          run: |
-           npm install npm node-fetch node-xlsx fs jsdom js-fire
+           npm install node-fetch node-xlsx fs jsdom js-fire
            node index.js go "${{ github.event.inputs.url }}"  ${{github.event.inputs.xlsx}}
        - name: Commit files
          run: |
