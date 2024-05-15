@@ -1,11 +1,12 @@
 name: Manual
 on:
+  push:
   workflow_dispatch:
     inputs:
       url:
         description: '公众号网址？'
         required: true
-        default: '' 
+        default: "''" 
       xlsx:
         description: '生成xlsx or csv？'
         required: true
