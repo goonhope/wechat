@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       url:
-        description: '公众号网址？'
+        description: '公众号单片文章网址？'
         required: true
         default: "" 
       xlsx:
-        description: '生成xlsx or csv？'
+        description: 'csv or xlsx?'
         required: true
         default: false
 jobs:
