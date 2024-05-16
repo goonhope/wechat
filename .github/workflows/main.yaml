@@ -11,15 +11,13 @@ on:
         description: '生成xlsx or csv？'
         required: true
         default: false
-        
-
 jobs:
   get_list:
     runs-on: ubuntu-latest
     steps:
        - name: check
          uses: actions/checkout@master
-       - name: setup env
+       - name: nodejs
          uses: actions/setup-node@v4
          with:
            node-version: '20'
