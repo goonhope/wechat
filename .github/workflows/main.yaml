@@ -1,6 +1,5 @@
 name: Manual
 on:
-  push:
   workflow_dispatch:
     inputs:
       url:
@@ -11,6 +10,8 @@ on:
         description: 'csv or xlsx?'
         required: true
         default: false
+  schedule:
+    - cron: "0 13 * * 6"
 jobs:
   get_list:
     runs-on: ubuntu-latest
