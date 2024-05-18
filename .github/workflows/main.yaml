@@ -11,7 +11,7 @@ on:
         required: true
         default: false
   schedule:
-    - cron: "0 13 * * 5"
+    - cron: "0 13 ?/14 * 5"
 jobs:
   get_list:
     runs-on: ubuntu-latest
