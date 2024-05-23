@@ -11,7 +11,7 @@ on:
         required: true
         default: false
   schedule:
-    - cron: "0 13 * * 5"  # 0 13 7-13,21-27 * 5 - Intersection or union
+    - cron: "0 13 * * 5"  # 0 13 7-13,21-27 * 5 -union, no Intersection
 jobs:
   get_list:
     runs-on: ubuntu-latest
