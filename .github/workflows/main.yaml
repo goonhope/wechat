@@ -25,6 +25,7 @@ jobs:
        - name: envrun
          run: |
            npm install node-fetch node-xlsx fs jsdom js-fire
+           # sed 's/^\}/,"type": "module"\}/g' package.json -i  # modified 
            node index.js "${{ '' || github.event.inputs.url}}" ${{false || github.event.inputs.xlsx}}
        - name: Commit files
          run: |
