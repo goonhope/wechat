@@ -1,4 +1,4 @@
-name: Manual
+name: update
 on:
   workflow_dispatch:
     inputs:
@@ -32,7 +32,7 @@ jobs:
           git config --local user.email "goonhope@gmail.com"
           git config --local user.name "goonhope"
           git add -A
-          git commit -m "Update `date -d '8 hour' '+%Y/%m/%d %H:%M:%S'`" -a
+          git commit -m "Update `date -d '8 hour' '+%Y/%m/%d %H:%M:%S'`" -a || echo 'Nothing changed!'
        - name: Push back
          uses: ad-m/github-push-action@master
          with:
